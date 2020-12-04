@@ -6,7 +6,7 @@ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
 
 docker run -it \
-    --name="ros-docker-nv-mk2" \
+    --name="ros-docker" \
     --env="DISPLAY=$DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
@@ -14,7 +14,7 @@ docker run -it \
     --volume="$XAUTH:$XAUTH" \
     --volume=`pwd`/catkin_ws:/root/catkin_ws \
     --runtime=nvidia \
-    ros_melodic_nv_mk2 
+    ros_melodic_gui
 
 
 

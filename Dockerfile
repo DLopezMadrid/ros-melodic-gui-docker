@@ -56,14 +56,12 @@ ENV ZSH_THEME agnoster
 # run the installation script  
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
-# start zsh
-CMD [ "zsh" ]
 
-# create ros entry point
-RUN touch ~/zsh_ros_entrypoint.sh
-RUN echo '#!/usr/bin/zsh' >> ~/zsh_ros_entrypoint.sh
-RUN echo 'set -e' >> ~/zsh_ros_entrypoint.sh
-RUN echo 'source "/opt/ros/melodic/setup.zsh"' >> ~/zsh_ros_entrypoint.sh
-RUN echo 'exec "$@"' >> ~/zsh_ros_entrypoint.sh
-RUN sudo chmod +x ~/zsh_ros_entrypoint.sh
-RUN ~/zsh_ros_entrypoint.sh
+
+# create alias for sourcing ros env on zsh
+ENV SHELL /usr/bin/zsh
+RUN echo 'alias rs="source /opt/ros/melodic/setup.zsh"' >> ~/.zshrc
+RUN echo 'source /opt/ros/melodic/setup.zsh' >> ~/.zshrc
+
+# start zsh
+CMD ["zsh"]

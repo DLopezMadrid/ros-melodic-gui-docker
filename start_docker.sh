@@ -9,9 +9,8 @@ xhost +local:root
 # to set up the right environment variables in CLion
 echo "Set \$DISPLAY parameter to $DISPLAY" 
 
-docker start ros-docker-nv-mk2
-docker exec ros-docker-nv-mk2 /usr/bin/zsh -c '~/zsh_ros_entrypoint.sh' 
-docker attach ros-docker-nv-mk2 
+docker start ros-docker
+docker attach ros-docker 
 
 # disallow x server connection
 xhost -local:root

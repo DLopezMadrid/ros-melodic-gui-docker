@@ -1,1 +1,1 @@
-docker build -t ros_melodic_nv .
+docker build -t ros_melodic_gui .
