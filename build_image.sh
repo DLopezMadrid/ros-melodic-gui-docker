@@ -1,1 +1,1 @@
-docker build -t my_melodic_image .
+docker build -t ros_melodic_nv .

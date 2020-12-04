@@ -9,10 +9,9 @@ xhost +local:root
 # to set up the right environment variables in CLion
 echo "Set \$DISPLAY parameter to $DISPLAY" 
 
-docker start ros-melodic-nv
-#export containerId=$(docker ps -l -q)
-docker exec ros-melodic-nv bash -c 'source /ros_entrypoint.sh' 
-docker attach ros-melodic-nv 
+docker start ros-docker-nv-mk2
+docker exec ros-docker-nv-mk2 /usr/bin/zsh -c '~/zsh_ros_entrypoint.sh' 
+docker attach ros-docker-nv-mk2 
 
 # disallow x server connection
 xhost -local:root
