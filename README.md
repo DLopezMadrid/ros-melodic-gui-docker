@@ -1,4 +1,4 @@
-## ROS Melodic docker container with X11 forwarding
+## ROS Melodic docker image with X11 forwarding
 
 Based on instructions from the [ROS wiki](http://wiki.ros.org/docker/Tutorials/Hardware%20Acceleration)  
 
