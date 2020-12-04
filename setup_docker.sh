@@ -12,6 +12,7 @@ docker run -it \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
+    --volume=`pwd`/catkin_ws:/root/catkin_ws \
     --runtime=nvidia \
     ros_melodic_nv_mk2 
 
