@@ -9,7 +9,7 @@ You will need the latest nvidia-drivers (tested with 455) and nvidia-docker2
 
 This image also contains sublime text, zsh and a bunch of other common utilities  
 
-#### How to use it
+### How to use it
 1. Build image with `build_image.sh`  
 2. Setup container with `setup_docker.sh`  
 3. Launch container with `start_docker.sh`  
