@@ -12,7 +12,7 @@ This image also contains sublime text, zsh and a bunch of other common utilities
 ### How to use it
 1a. Pull the image from Docker Hub  
 `docker pull dlopezmadrid/ros-melodic-gui-docker`  
-1b. Build image with `build_image.sh`  
+1b. OR alternativey you can build the image with `build_image.sh`  
 2. Setup container with `setup_docker.sh`  
 3. Launch container with `start_docker.sh`  
 4. Test that the environment is properly loaded by running `roscd roscpp` from within the container
