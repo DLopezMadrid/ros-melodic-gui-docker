@@ -1,1 +1,1 @@
-docker build -t ros_melodic_gui .
+docker build -t dlopezmadrid/ros-melodic-gui-docker .

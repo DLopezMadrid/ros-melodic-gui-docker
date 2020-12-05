@@ -14,7 +14,7 @@ docker run -it \
     --volume="$XAUTH:$XAUTH" \
     --volume=`pwd`/catkin_ws:/root/catkin_ws \
     --runtime=nvidia \
-    ros_melodic_gui
+    dlopezmadrid/ros-melodic-gui-docker
 
 
 
