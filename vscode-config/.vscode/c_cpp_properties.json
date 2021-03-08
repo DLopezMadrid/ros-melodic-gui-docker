@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "${workspaceFolder}/devel/include",
+        "/opt/ros/melodic/include/**",
+        "/root/catkin_ws/src/icpslam/include/**",
+        "/root/catkin_ws/src/pose_graph_utils/include/**",
+        "/usr/include/**",
+        "${workspaceFolder}/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    }
+  ],
+  "version": 4
+}

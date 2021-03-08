@@ -1,1 +1,5 @@
 catkin_ws/
+catkin_ws_g2o/
+gazebo_worlds/
+vscode_dir/
+

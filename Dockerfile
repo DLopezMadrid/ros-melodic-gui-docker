@@ -1,5 +1,21 @@
 FROM osrf/ros:melodic-desktop-full
 
+RUN sudo apt update
+RUN apt-get install -y \
+    ros-melodic-base-local-planner \
+    ros-melodic-clear-costmap-recovery \
+    ros-melodic-costmap-2d \
+    ros-melodic-move-base-msgs \
+    ros-melodic-nav-core \
+    ros-melodic-navfn \
+    ros-melodic-rotate-recovery \
+    ros-melodic-voxel-grid \
+    ros-melodic-move-base \
+    ros-melodic-gmapping \
+    ros-melodic-amcl \
+    ros-melodic-teleop-twist-keyboard \
+    ros-melodic-map-server 
+
 # nvidia-container-runtime
 ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}
@@ -23,7 +39,8 @@ RUN apt-get install -y \
     vim \
     terminator \
     dbus \
-    dbus-x11
+    dbus-x11 \
+    pcmanfm
 
 # ======== Install extra stuff for IDE compatibility ========
 RUN apt-get install -y \
@@ -31,6 +48,7 @@ RUN apt-get install -y \
     curl \
     rsync \
     zsh \
+    unzip \
     openssh-server
 
 
@@ -57,11 +75,22 @@ ENV ZSH_THEME agnoster
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 
+# install vscode 
+RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+RUN sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+RUN sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+RUN sudo apt install apt-transport-https
+RUN sudo apt update
+RUN sudo apt install code # or code-insiders
+
 
 # create alias for sourcing ros env on zsh
 ENV SHELL /usr/bin/zsh
 RUN echo 'alias rs="source /opt/ros/melodic/setup.zsh"' >> ~/.zshrc
 RUN echo 'source /opt/ros/melodic/setup.zsh' >> ~/.zshrc
+RUN echo 'alias cs="source /root/catkin_ws/devel/setup.zsh"' >> ~/.zshrc
+RUN echo 'source /root/catkin_ws/devel/setup.zsh' >> ~/.zshrc
+RUN echo 'alias vscode="code --user-data-dir=/root/vscode_dir"' >> ./.zshrc
 
 # start zsh
 CMD ["zsh"]
